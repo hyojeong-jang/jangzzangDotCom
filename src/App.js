@@ -70,8 +70,7 @@ function App () {
       e.target.value = '';
     }
   });
-console.log(directoryHistory)
-console.log(commandHead)
+
   const options = {
     show: true,
     blink: false,
@@ -112,14 +111,14 @@ console.log(commandHead)
           >
             <span>{`Please check the README.md and enter the command ^^`}</span>
             <Typist.Backspace count={2} delay={200} />
-            <span>{` ;)`}</span>
+            <span>{` ^o^`}</span>
           </Typist>
           {
             commandList.map((command, idx) => {
               return <div key={idx}>
                 {
                   command.output !== undefined
-                  && <p>{`${commandHead.replace('~', directoryHistory[idx])} ${command.input}`}<br/>{`${command.output ? command.output : ''}`}</p>
+                  && <p>{`${commandHead} ${command.input}`}<br/>{`${command.output ? command.output : ''}`}</p>
                 }
               </div>
             })
