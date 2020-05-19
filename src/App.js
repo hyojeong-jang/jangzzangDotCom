@@ -13,7 +13,7 @@ function App () {
   const [ isModalOpen, setIsModalOpen ] = useState(false);
   const [ commandList, setCommandList ] = useState([]);
   const [ currentDirectory, setCurrentDirectory ] = useState(null);
-  const [ directoryHistory, setDirectoryHistory ] = useState([]);
+  const [ directoryHistory, setDirectoryHistory ] = useState(['~']);
 
   const onFolderClick = useCallback(() => {
     setIsModalOpen(true);
@@ -35,14 +35,15 @@ function App () {
           directory: currentDirectory
         };
 
-        setDirectoryHistory([ ...directoryHistory, null ]);
+        setDirectoryHistory([ ...directoryHistory, '~' ]);
         setCommandList([ ...commandList, command ]);
         e.target.value = '';
         return window.open(output.url);
       }
 
       if (e.target.value === 'cd ..') {
-        setDirectoryHistory([ ...directoryHistory, null ]);
+        setCurrentDirectory('~');
+        setDirectoryHistory([ ...directoryHistory, '~' ]);
       }
 
       const output = commandValidation(e.target.value);
@@ -53,7 +54,7 @@ function App () {
           output: output.text
         };
 
-        setDirectoryHistory([ ...directoryHistory, null ]);
+        setDirectoryHistory([ ...directoryHistory, '~' ]);
         setCommandList([ ...commandList, command ]);
       } else {
         const command = {
@@ -118,7 +119,7 @@ function App () {
               return <div key={idx}>
                 {
                   command.output !== undefined
-                  && <p>{`${commandHead} ${command.input}`}<br/>{`${command.output ? command.output : ''}`}</p>
+                  && <p>{`${commandHead.replace('~', directoryHistory[idx])} ${command.input}`}<br/>{`${command.output ? command.output : ''}`}</p>
                 }
               </div>
             })
