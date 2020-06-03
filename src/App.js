@@ -110,9 +110,9 @@ function App () {
             cursor={options}
             onTypingDone={onTypingDone}
           >
-            <span>{`Please check the README.md and enter the command ^^`}</span>
+            <span>{`Please check the README.md and enter the command..`}</span>
             <Typist.Backspace count={2} delay={200} />
-            <span>{` ^o^`}</span>
+            <span>{` ☺️`}</span>
           </Typist>
           {
             commandList.map((command, idx) => {
