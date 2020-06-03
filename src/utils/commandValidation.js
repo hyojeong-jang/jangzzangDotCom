@@ -1,5 +1,5 @@
 const directories = {
-  'Resume': 'https://www.google.com/search?q=resume&rlz=1C5CHFA_enKR894KR894&oq=resume&aqs=chrome..69i57j69i59j0l3j69i61j69i60l2.2193j0j7&sourceid=chrome&ie=UTF-8',
+  'Resume': 'https://chaekbonnal.s3.ap-northeast-2.amazonaws.com/%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%92%E1%85%AD%E1%84%8C%E1%85%A5%E1%86%BC_resume.pdf',
   'ChaekBonNal': 'https://github.com/hyozzang2/ChaekBonNal-client',
   'Battle-Underground': 'https://github.com/hyozzang2/battleUnderground-client'
 };
